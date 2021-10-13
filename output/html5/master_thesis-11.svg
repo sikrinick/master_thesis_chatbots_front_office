@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?> 
+<?xml-stylesheet href="master_thesis.css" type="text/css"?> 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="370.3611pt" height="149.46048pt" viewBox="-115.28265 -74.73024 370.3611 149.46048 "> 
+<g transform="translate(0, 74.73024 ) scale(1,-1) translate(0,74.73024 )"> 
+                             <g stroke="#000" fill="#000">
+ <g stroke-width="0.4">
+ <path d=" M -63.10582 -17.62474 h 126.21164 v 35.24948 h -126.21164 Z  " fill="none"/>
+ <g transform="translate(-59.18964,-4.13324)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(59.18964,0)" text-anchor="middle"  font-size="12"> 
+<g fill="#000">
+ <g stroke="none"> Rule-based middleware</g> </g>
+ </text> 
+</g>
+ </g>
+ <path d=" M -100.57297 39.28076 h 87.33493 v 35.24948 h -87.33493 Z  " fill="none"/>
+ <g transform="translate(-96.65678,52.77226)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(39.75128,0)" text-anchor="middle"  font-size="12"> 
+<g fill="#000">
+ <g stroke="none"> User of services </g> </g>
+ </text> 
+</g>
+ </g>
+ <path d=" M -115.08266 -74.53024 h 116.35431 v 35.24948 h -116.35431 Z  " fill="none"/>
+ <g transform="translate(-111.16647,-59.87209)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(54.26097,0)" text-anchor="middle"  font-size="12"> 
+<g fill="#000">
+ <g stroke="none"> Front-office employee </g> </g>
+ </text> 
+</g>
+ </g>
+ <path d=" M 91.95856 -17.62474 h 162.91989 v 35.24948 h -162.91989 Z  " fill="none"/>
+ <g transform="translate(95.87474,-4.13324)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(77.54376,0)" text-anchor="middle"  font-size="12"> 
+<g fill="#000">
+ <g stroke="none"> Conversational API of a Bank</g> </g>
+ </text> 
+</g>
+ </g>
+ <path d=" M 113.6153 39.28076 h 119.60641 v 35.24948 h -119.60641 Z  " fill="none"/>
+ <g transform="translate(117.53148,52.77226)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(55.88702,0)" text-anchor="middle"  font-size="12"> 
+<g fill="#000">
+ <g stroke="none"> Public API of a Bank </g> </g>
+ </text> 
+</g>
+ </g>
+ <path d=" M 117.08632 -74.53024 h 112.66437 v 35.24948 h -112.66437 Z  " fill="none"/>
+ <g transform="translate(121.0025,-59.87209)">
+ <g fill="#000">
+ <text style="stroke:none" transform="scale(1,-1) translate(52.416,0)" text-anchor="middle"  font-size="12"> 
+<g fill="#000">
+ <g stroke="none"> Knowledge database </g> </g>
+ </text> 
+</g>
+ </g>
+ <path d=" M -39.08621 39.08076 L -19.51201 19.52107  " fill="none"/>
+ <g transform="matrix(0.70735,-0.70682,0.70682,0.70735,-19.51201,19.52107)">
+ <path d=" M 2.39996 0.0 C 1.39998 0.2 -0.4 0.59999 -1.59998 1.49997 C -0.59999 0.4 -0.59999 -0.4 -1.59998 -1.49997 C -0.4 -0.59999 1.39998 -0.2 2.39996 0.0 Z  " stroke="none"/>
+  </g>
+ <path d=" M -39.08621 -39.08076 L -19.51201 -19.52107  " fill="none"/>
+ <g transform="matrix(0.70735,0.70682,-0.70682,0.70735,-19.51201,-19.52107)">
+ <path d=" M 2.39996 0.0 C 1.39998 0.2 -0.4 0.59999 -1.59998 1.49997 C -0.59999 0.4 -0.59999 -0.4 -1.59998 -1.49997 C -0.4 -0.59999 1.39998 -0.2 2.39996 0.0 Z  " stroke="none"/>
+  </g>
+ <path d=" M 63.30582 0.0 L 89.3586 0.0  " fill="none"/>
+ <g transform="translate(89.3586,0.0)">
+ <path d=" M 2.39996 0.0 C 1.39998 0.2 -0.4 0.59999 -1.59998 1.49997 C -0.59999 0.4 -0.59999 -0.4 -1.59998 -1.49997 C -0.4 -0.59999 1.39998 -0.2 2.39996 0.0 Z  " stroke="none"/>
+  </g>
+ <path d=" M 173.4185 17.82474 L 173.4185 36.6808  " fill="none"/>
+ <g transform="matrix(0.0,1.0,-1.0,0.0,173.4185,36.6808)">
+ <path d=" M 2.39996 0.0 C 1.39998 0.2 -0.4 0.59999 -1.59998 1.49997 C -0.59999 0.4 -0.59999 -0.4 -1.59998 -1.49997 C -0.4 -0.59999 1.39998 -0.2 2.39996 0.0 Z  " stroke="none"/>
+  </g>
+ <path d=" M 173.4185 -17.82474 L 173.4185 -36.6808  " fill="none"/>
+ <g transform="matrix(0.0,-1.0,1.0,0.0,173.4185,-36.6808)">
+ <path d=" M 2.39996 0.0 C 1.39998 0.2 -0.4 0.59999 -1.59998 1.49997 C -0.59999 0.4 -0.59999 -0.4 -1.59998 -1.49997 C -0.4 -0.59999 1.39998 -0.2 2.39996 0.0 Z  " stroke="none"/>
+  </g>
+ </g>
+ </g>
+ 
+                                                                                               </g> 
+</svg> 

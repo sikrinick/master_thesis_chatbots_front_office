@@ -1,0 +1,25 @@
+# Latex PDF
+*.aux
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.xdv
+*.loa
+*.los
+*.tmp
+
+# make4ht
+*.4ct
+*.4tc
+*.dvi
+*.xref
+*.idv
+*.lg
+
+# Word
+~$

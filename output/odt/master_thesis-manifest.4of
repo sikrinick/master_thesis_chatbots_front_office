@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<manifest:manifest xmlns:manifest = "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"> 
+<manifest:file-entry manifest:media-type="application/vnd.oasis.opendocument.text" manifest:full-path="/"/> <manifest:file-entry manifest:media-type="" manifest:full-path="Pictures/"/> 
+<manifest:file-entry manifest:media-type="text/xml" manifest:full-path="content.xml"/> 
+<manifest:file-entry manifest:media-type="text/xml" manifest:full-path="styles.xml"/> 
+<manifest:file-entry manifest:media-type="text/xml" manifest:full-path="meta.xml"/> 
+<manifest:file-entry manifest:media-type="text/xml" manifest:full-path="settings.xml"/> 
+<manifest:file-entry manifest:full-path="Pictures/master_thesis0x.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/master_thesis1x.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/Banking_AI_Business_Value.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/share_internet_banking.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/statista_search_engines.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/nlp_models_parameters.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/master_thesis2x.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/master_thesis3x.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/wells_fargo_bot_1.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/wells_fargo_bot_2.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/wells_fargo_bot_3.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/master_thesis6x.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/master_thesis4x.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/master_thesis7x.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/master_thesis8x.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/master_thesis11x.png" manifest:media-type="\image:mimepng "/> 
+<manifest:file-entry manifest:full-path="Pictures/master_thesis9x.png" manifest:media-type="\image:mimepng "/> 
+</manifest:manifest> 

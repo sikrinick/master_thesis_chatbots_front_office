@@ -1,0 +1,270 @@
+% !TeX root = ../../master_thesis.tex
+
+\section{Open Banking Movement and PSD2}
+\label{sec:psd2}
+
+\subsection{Overview of PSD2}
+
+In year 2007 European Parliament accepted directive, which aimed at regulation of European market of online transactions and online banking. That document was called Payment Service Directive — PSD.
+\cite{psd1}
+
+First revision of Payment Service Directive had created foundation for a common payment market in the EU and the provision of payment services on high level of security and the use of advanced technologies. 
+It had set two sets of main rules, market rules and business conduct rules.
+The market rules part had established a list of organizations which could provide payment services. Additionally, this set declared steps in order to be authorized as a payment institution, fulfilling certain capital and risk management requirements. 
+The business conduct rules part in its turn required transparency on a business level. According to those rules any quantitative characteristics of services providers, such as charges, exchange rates, transaction references and execution times, should be obvious and transparent. Moreover, it defines rights and obligations for both service providers and customers, such as revoking of payments and refunds.
+
+The adoption of PSD1 had brought a list of significant benefits to the payments market.
+Firstly, it had simplified market entry for new and small companies, as it specified obvious rules and demanded from EU state authorities on various level to guarantee practical execution of those rules.
+Additionally, level of responsibility became significantly clearer both for customers and payment institutions, which lead to improved protection of payment rights of compensation and refund.
+
+Obviously, transparent rules and open market had increased level of competitiveness, and, consequently, business transparency overall increased, as well as reduction of both costs and terms of payment execution.
+Of course, that had been a major positive impact for customers.
+
+Nevertheless, PSD1 had remaining issues which had shown that there were still place for development.
+PSD1 lacked direct instructions towards application of certain provision of the directive, which lead to different interpretations by regulatory authorities in EU member states.
+In a number of countries, this uncertainty had resulted in deteriorating consumer protection and distortions in ensuring equal market conditions. 
+
+That problem had being especially expressed in provisions of the directive that defines types of activities that are excluded from regulation. 
+For example, services provided by a limited network of suppliers, sales of limited goods and services categories.
+Same problem concerned establishing fund refunding procedure in case of unauthorized debiting from a customer account.
+Those provisions had been applied in different ways in different EU countries. 
+
+Moreover, since 2007, year of PSD1 adoption, there have been major changes in the retail payments market, due to introduction of innovative technologies, the rapid growth of transactions using electronic and mobile devices and the emergence of new types of payment services, such as services for payment order execution and services for the financial information consolidation. 
+Consequently, many innovative products and services were wholly or largely outside the scope of the PSD1, as such a development in the payment industry was not taken into account.
+
+Furthermore, there was a significant increase in risks associated payments transaction via electronic communication channels.
+In order to handle increase security threats, European Banking Authority along with European Central Bank had issued guidelines on the security of internet payments, which had set the minimum security requirements for money transfer operators in the EU and was intended to provide additional protection for payment service customers. 
+\cite{guidelines_internet_payments}
+
+However, regulator researches had shown a major influence of technological, organizational and structural innovations on a market, which, in its turn, required substantial documentation of a renewal of new approaches in payment operation services and their interaction on a legislative level.
+Among those tendencies we may indicate:
+\begin{itemize}
+    \item Mobile and Internet payment technologies development
+    \item Difference in tariff structure on card acceptance of merchants, resulting in difficulties in creation of common retail space
+    \item High abstraction of existing regulations resulted in general lack of detailization of security of remote payment operations
+\end{itemize}
+
+Taking above-mentioned, and certain others issues into account, the European Commission in July 2013 submitted a proposal to revise the PSD 1 directive. The purpose of this initiative is to close existing regulatory gaps, bring the directive's provisions in line with modern technologies, improve data protection measures within the common market, and create a fair and level playing field for money transfer operators.
+
+In year 2015, European Parliament accepted changes to PSD, resulting in a second version of this directive — PSD2.
+\cite{psd2}
+Basically, PSD2 directive aims to increase competition in the field of user financial data access and make it possible to create open interfaces to work with user financial data not only for big financial organizations, for example, banks, but also for young and smaller FinTech startups.
+
+The main objectives of new Payments Service Directive were:
+\begin{itemize}
+    \item Promoting further integration and optimization of European payments market
+    \item Ensuring equal conditions for competitors over money transfer operators, including new market entrants
+    \item Security improvement of the payment infrastructure
+    \item Consumer protection
+    \item Assistance in commissions reducing for the payment services provision
+\end{itemize}
+
+PSD2 additionally regulates payment initialization services and services based on account information, as those types of services were not covered in the first PSD.
+Besides, directive establishes unified rules for cross-border and payments within European Economic Area, thereby ensuring fair competition between financial institutions and creates more transparent rules for consumers of financial services.
+PSD2 provides terminology, which has to be described for proper understanding of the process.
+
+ASPSP — Account Servicing Payment Service Provider — banks and electronic wallets, which provide customer accounts. Based on PSD2, ASPSPs are obliged to supply interfaces, which would allow based on client intent to execute payments initiated by TPPs.
+
+TPP — Third Party Provider — authorized service supplier, which uses ASPSP interfaces according to PSD2 to access customer accounts, to initiate and execute payments.
+TPPs can be either AISP or PISP or PIISP.
+
+AISP — Account Information Service Provider — services aggregated information about one or many customer accounts from one or many ASPSPs.
+
+PISP — Payment Initiation Service Provider — initiates payment procedure on customer demand in terms of an account based on ASPSP.
+
+PIISP — Payment Instrument Issuer Service Provider — checks availability of sufficient funds on an account.
+
+PSU — Payment Services User — it is an actual client of payment services and uses payment service of ASPSP as sender, receiver, or both.
+
+The next diagram shows the relationship between directive participants.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+    \node[block](standards){PSD2, EBA, GDPR, standards and recommendations};
+    \node[block, below of = standards]
+         (regulator){Regulator};
+    \node[block, 
+         below left = 1cm and 1cm of regulator,
+         align = center]
+         (aspsp){ASPSP\\(Banks, wallets)};
+   \node[block,
+          below right = 1cm and 1cm of regulator, 
+          align = center]
+          (tpp){TPP\\(AISP, PISP, PIISP)};
+    \node[block, below left = 1cm and 1cm of tpp](psu){PSU};
+
+    \draw[->](standards) -- (regulator);
+    \draw[->](regulator) -- (tpp);
+    \draw[->](regulator) -- (aspsp);
+    \draw[<->](tpp) -- node{$PSD2$} (aspsp);
+    \draw[->](tpp) -- node[midway,below right]{$PSD2$ $Consent$} (psu);
+    \draw[->](aspsp) -- node[midway, below left]{$SCA$} (psu);
+\end{tikzpicture}
+\caption{Scheme of interconnection between PSD2 agents}
+\medskip
+\footnotesize\textit{Source:} Own study, based on: "Open banking and PSD2", Deloitte, 2019, p. 9.
+\end{figure}
+
+Firstly, based on PSD2, EBA, GDPR and other standards and recommendations, regulator oversees and builds relationship between three main participants of the directive — ASPSP, TPP and PSU.
+The interaction between TPP and ASPSP is based on a non-contract basis, as both participants are regulated by PSD2.
+This is important in order to keep the chain of responsibilities working, as otherwise there could be many obstacles which would interfere Open Banking.
+Relationship between TPP and PSU are based on PSD2 Consent.
+TPP is obliged to request PSU consent to access client account.
+On an ASPSP side client has to authorize based on PSD2 Consent, using SCA (Strong Customer Authentication) or DL (Dynamic Linking) — authorization technologies determined by EU regulation on electronic identification.
+
+Even though PSD2 presupposes high safety and integration in entire European banking, it lacks implementation details. 
+Open Banking Working Group, which had to deliver PSD2 as a framework, intentionally made it as flexible as possible with multiple options, as it allowed applying PSD2 in the fastest possible way in as many states and banks as possible. 
+On the other hand, this resulted in misconception in implementations of certain banks and differences in interfaces for third-party providers., which led to need to adapt to various application interfaces for each payment service for each third-party provider.
+
+United Kingdom was the pioneer of Open Banking, where Competition and Markets Authority (CMA) issued a ruling that required the nine-biggest UK banks to allow licensed startups direct access to their data down to the level of transaction-account transactions. 
+\cite{open_banking_uk}
+
+Additionally, CMA issued a set of proposals for creation of a transparent banking services system.
+Those set of proposals and requirements, often referenced to as Open Banking remedies, have to be distinguished from Open Banking as an initiative, as those remedies describe only a specific option and possible solution.
+To provide control over UK Open Banking implementation CMA created special dedicated authority — Open Banking Implementation Entity.
+Comparing to PSD2, UK Open Banking resolutions implement PSD2, but are much less flexible.
+PSD2, in its turn, is a mandatory requirement for all payment account providers in European Union in order to implement Open Banking as a concept. In general terms, PSD2 tells what has to be done, while Open Banking implementation in UK determines how it has to be done.
+
+
+
+
+\subsection{Open Banking}
+
+Generally speaking, Open Banking is a concept of providing access to bank services and customer data to third-party applications on customer request in safe and sound manner. 
+\cite{deloitte_open_banking}
+The purpose of Open Banking is to improve quality of customer service and to allow third parties to use and analyze financial data.
+
+Unfortunately, existing state of things, especially after financial crisis and international “Too big to fail” policy, most of the regulators in different countries, as an example, CMA, had next key conclusions:
+\cite{cma_banking_investigation}
+\begin{itemize}
+    \item There is a considerable high level of risk concentration due to market monopolization.
+    \item Existing monopoly situation results in higher prices, operation commissions, product and services costs.
+    \item Existing situation prevents the emergence and development of new approaches in data analysis.
+\end{itemize}
+
+As a possible solution appeared an idea of Open Banking, which allows technological development, change of attitude towards user data ownership, as it is reflected in GDPR and Open data with Open API conceptions.
+
+As an example, we can take a main banking state in European region — United Kingdom.
+UK got into hard situation, as critical concentration of client account was only in a couple of banks.
+Historically, UK had survived the consequences of a number of reorganization of large financial structures that cost around 37 billion of pounds.
+Consequently, UK had to do multiple tasks:
+\begin{itemize}
+    \item Increase competition in financial sector
+    \item Expand opportunities for financing for small and medium-sized businesses 
+    \item Decrease influence of dominant position of the largest banks that creates unequal work conditions and monopolistic risks, as according to CMA newer banks had only 2\% of loan market for small and medium-size business
+    \item Decrease risk of creation of infamous backbone “too big to fail” institutions, which would require significant reorganization costs to save
+\end{itemize}
+
+Those tasks can be solved by:
+\begin{itemize}
+    \item Quality and client service enhancement
+    \item Allowing product comparison and general conditions of primary services in all banks
+    \item New improved services using open data done by less regulated organizations, including start-uploads
+    \item Stimulation of account distribution among financial organization using special mechanisms, for example, systems for account transfer between banks with the preservation of its details — The Current Account Switch service
+\end{itemize}
+
+CMA gave a direct recommendation to 9 largest banks which hold the vast majority of individual accounts in the country about the importance to creation of public API as well as work on the coordination, implementation and support of the relevant standards in accordance with the project plan approved by the CMA.
+
+The main instrument for competition stimulation in the financial market is aimed at expanding the choice of financial products or services for consumers by providing access through open programming interfaces, API.
+
+Obviously, for financial organizations Open Banking brings certain risks: 
+\begin{itemize}
+    \item Implementation costs
+    \item Support consts of open API 
+    \item Cybersecurity and funds embezzlement risks
+    \item Competition risks, 
+    \item Operational and legal risks
+\end{itemize}
+
+However, among the biggest risks is a lack of infrastructure solutions.
+Bank becomes supermarket on a platform.
+Every company has to know how to create a platform.
+Banks are under pressure, which requires from them to create those platforms.
+They are underway, but they lack scaling and prevalence.
+This is just a preparation stage for scaling.
+Some banks will disappear, washed away by the wave.
+New distribution technologies would allow developing other, more niche technologies.
+
+Bank as a service and bank as a platform.
+Bank can (and has) to create a model of a platform, and to attract third-parties, pack their product into their service and offer those to their clients.
+As a result, client would be able to use much more products.
+
+Undoubtedly, the initiative amplifies opportunities for creating new businesses. 
+Additionally, directive positions that a person's financial data should belong to the person himself and a person should have the right to dispose of this data at his own discretion.
+
+As a conclusion, I have to mention that even though PSD2 and Open Banking result in positive influence for everything related to online and digital banking, this lacks security. Unfortunately, it may have negative effect over customer data, as third party companies may not be secure enough to handle the responsibility of customer data handling, and it may result in data leaks. In this case, making service more dynamic, PSD2 doesn't help customers to defend right of confidentiality of customer information. 
+Regulatory measures in this case are not enough and more serious decisions and more serious standards are needed.
+Moreover, PSD2 even in conjunction with GDPR may leave customer alone with both impregnable big transnational banks in case of data leak and young faceless startups.
+
+From a client perspective, changes have been bringing major positive influences.
+Open access will bring comfort and convenience in industry.
+
+Firstly, this significantly accelerates development of digital banking.
+Technologies have already become a part of life and exist everywhere.
+Of course, there have been tendencies in traditional banking for a long time in movement towards digital banking, as technologies became much more available and develop significantly faster.
+
+Secondly, banks should adapt to existing and future clients, as it is not the client which was 20 years ago.
+Nowadays, client has much higher demands towards products and its accessibility.
+Moreover, technologies dictate new forms of client communication, such as social networks and various messenger apps.
+What is even more interesting, is that those new communication channels are not just some public places, like street or internet, but some private platforms, social networks, on mobile devices.
+
+Both technologies, clients, communication and data have been developing and progressing towards Open Banking.
+
+
+
+
+\subsection{Conclusion}
+
+PSD2 by itself was a major initiative, which mostly stimulated development of Open Banking, as main purpose of this document was to build a structural set of requirements in order make a regulated platform for implementation of Open Banking.
+
+Even though PSD2 is a requirement, the document by itself is pretty abstract, which results in different concrete implementations by default.
+However, this can be solved by both state regulator, as in UK, or by third-party middleware, which could offer unified API.
+
+In fact, Open Banking is a system which is based on API.
+Using various API providers companies can combine services to improve customer experience.
+API is a programming interface from a set of ready-made functions or structures that are provided by an application or service.
+Public API — is a public available set of programming instruments, which allow application interaction.
+
+As a rule, Open API is being used for partly integration on various services and in order to use independent services as a dependency.
+Open API allows third-party developers to access and use service's functionality.
+API became a product and a bank service, which allows developing platforms compatible with the API.
+This allows developers and third-parties to connect to a bank. 
+Bank as well may use such service for own operations and business.
+At the same time, the way banking business is being done today and will be done in 30 years will drastically differ.
+
+The best illustration of such concept is that banks have API platform and FinTech—companies may connect to bank via this API platform.
+Bank agrees on FinTech services usage and offers it to its customers.
+Open Banking Platform — business-platform, which takes data from third-parties and offers it to its clients. Why would third-parties be interested in this?
+This is a main question, as connection with banks is a question which exists outside their main activity.
+And there are no confirmed cases on interest from part of third-parties to get data from banks and to offer it to their clients.
+Assuming thinking as a commercial platform, there is a definitive reason why clients do use platform services — commerical platform's main product. 
+
+Banks have to offer something similar to API platform and to open a window for third-party companies and developers, which will integrate and could interact with a system without banks' actions.
+
+Basically, PSD2, Open Banking and API form 3 levels of abstraction, where PSD2 answers the question "what has to be done", regional level directives, for example, Open Banking Remedy is "how it has to be done" and API shows final result of this directive.
+
+Big data is the last component, which is extremely important for business, is everywhere and is a part of both business and business decisions.
+Undoubtedly, modern FinTech projects desperately need this type of data. 
+It is impossible to imagine modern financial advisor application in which user has to manually enter accounts and investment portfolios. 
+There have already been FinTech solutions targeting this problem and entire Data Aggregation, allowing to obtain unified access to data. 
+
+Even larger volume of data becomes available, and based on what it is possible to create client recommendations.
+Internet-platforms additionally can offer financial services and information to clients.
+However, client comes to this portal for specific services.
+Therefore, there is no guarantee that Open Banking would have influence.
+Open Banking is not just a word, that shows openness, but an operational banking philosophy.
+This requires to create new concept of banking, which is hard to understand for banks.
+In this context banks has to change it structure, business architecture, they have to make digital technologies as a basement of their system.
+This means, that banks must make the transition from traditional banking to new novel future banking.
+Banks have to understand simple things — philosophy, strategy, what they have to develop in their business, and if they have a team for this.
+Those are obvious, but banks have to pass through all the stages. 
+Otherwise, banks won't be able to move from old to new.
+Open Banking is an entire change of strategy and vision of a banking development for the next 5-10 years, but innovations have to be implemented today.
+
+There is an opinion that FinTech is in competition with banks, but it is not entirely true.
+Banks have history, brand, reputation, guarantees and experience.
+FinTech companies do not have it.
+On the other hand, FinTech has great products, which creates ideal conditions for cooperation, not for competition
+From a side of client interaction banks can and must work with FinTech, in order to offer those great products to bank clients.
+Obviously, FinTech won't solve all banking industry problems.

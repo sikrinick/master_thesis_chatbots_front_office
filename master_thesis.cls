@@ -51,6 +51,7 @@
 
 \setcounter{footnote}{0}  
 
+
 \linespread{1.425}
 
 % Reset margins
@@ -71,17 +72,20 @@
 \addtolength{\topmargin}{2.5cm}
 \addtolength{\textheight}{-5cm}
 
+% Title page
 \renewcommand{\maketitle}{
-  % Title page
-  \linespread{1.0}
+  \begin{spacing}{1.0}
   \begin{center}
-    {\Large
+    {\fontsize{18pt}{21.6pt}\selectfont
       University of Warsaw\\
       Faculty of Economic Sciences
       \par
     }
+
     \vspace{1cm plus 1fill} 
-    {\Large
+
+    \begin{spacing}{1.425}
+    {\fontsize{14pt}{16.8pt}\selectfont
       \@author
       \par
     }
@@ -89,32 +93,43 @@
       Album N°: \@studentbooknumber
       \par
     }
+    \end{spacing}
+
     \vspace{8mm plus .1fill}
-    {\Huge
+    
+    {\fontsize{20pt}{24pt}\selectfont
       \textbf{\@title}
       \par
     }
+    
     \vspace{8mm plus .1fill}
-    {\large
+    
+    \begin{spacing}{1.425}
+    {\fontsize{14pt}{16.8pt}\selectfont
       Master degree thesis\\
       Field of study: \@course
     }
+    \end{spacing}
+
     \vspace{2cm plus 1.5fill}
+    
     \begin{flushright}
       \begin{tabular}{r}
         The thesis written under the supervision of\\
         \@supervisor\\
-        from \@supervisorunit\\
+        \@supervisorunit\\
         WNE UW
       \end{tabular}
     \end{flushright}
+    
     \vspace{1cm plus 1fill}
-    {\large 
-      \@city , \@date
-      \par
-    }
+    
+    \@city , \@date
+    \par
+    
     \vspace{1.2cm}
   \end{center}
+  \end{spacing}
   \pagebreak
 
   % Supervisor statement
@@ -178,46 +193,64 @@
 \newcommand{\studycode}[1]{\gdef\@studycode{#1}}
 \newcommand{\classification}[1]{\gdef\@classification{#1}}
 \newcommand{\titlepl}[1]{\gdef\@titlepl{#1}}
+\newcommand{\summary}[1]{\gdef\@summary{#1}}
+\newcommand{\summarypl}[1]{\gdef\@summarypl{#1}}
 
-% Abstract and summary
-\renewenvironment{abstract}{
-  \vspace*{12pt}
+% Summary
+\newcommand{\makesummary}{
+  \begin{spacing}{1.0}
   \begin{center}
-    \bfseries\large Summary
+    \textbf{Summary}
     \@endparpenalty\@M
   \end{center}
-}
-{\par
-  \vspace*{26pt}
+  \@summary
+  
+  \medskip
+  
   \begin{center}
-    \bfseries\large Key words
+    \textbf{Streszczenie}
+    \@endparpenalty\@M
+  \end{center}
+  \@summarypl
+
+  \bigskip
+  
+  \begin{center}
+    \textbf{Key words}
     \@endparpenalty\@M
   \end{center}
   \begin{center}
-    \@keywords\par
+    \@keywords
   \end{center}
-  \vspace*{26pt}%
+
+  \bigskip
+
   \begin{center}%
-    \bfseries\large Field of the thesis (codes according to the Erasmus program)
+    \textbf{Field of the thesis (codes according to the Erasmus program)}
     \@endparpenalty\@M
   \end{center}
   \begin{center}
     \@studycode\par
   \end{center}
-  \vspace*{26pt}%
+
+  \bigskip
+
   \begin{center}%
-    \bfseries\large Thematic classification
+    \textbf{Thematic classification}
     \@endparpenalty\@M
     \@classification\par
   \end{center}
-  \vspace*{26pt}%
+
+  \bigskip
+
   \begin{center}%
-    \bfseries\large The title of the thesis in Polish
+    \textbf{The title of the thesis in Polish}
     \@endparpenalty\@M
   \end{center}
   \begin{center}
   \@titlepl\par
   \end{center}
+  \end{spacing}
   \vfil
   \pagebreak
 }
@@ -306,6 +339,11 @@
 
 %% Table caption
 
+%% Figure and table source
+\newcommand{\source}[1]{
+  \par\noindent\footnotesize\textit{Source:} #1
+}
+
 %% Citations
 \AtBeginDocument{
   %% Disabling citation boxes
@@ -323,7 +361,10 @@
     #3. % Name
     #4  % Publisher
     #5.  % Year
-    p. #6  % Page or pages
+    \ifx #6
+    \else
+      p. #6  % Page or pages
+    \fi
   }
   \newcommand{\onlinebibitem}[7]{
     \bibitem[#2(#5)]{#1}

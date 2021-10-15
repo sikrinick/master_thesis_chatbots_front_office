@@ -20,8 +20,9 @@ Currently, PSD2 demand only a small subset of operation, initiation of payments 
 However, this had already forced banks to know how to make secured public APIs according to regulations.
 As a set of possible operation using third-party providers is limited, we can assure that there are two APIs, for internal usage and for public usage.
 
-\begin{figure}
+\begin{table}
     \centering
+    \caption{Current route of a user request to a bank}
     \begin{tikzpicture}[auto, node distance=2cm,>=latex']
         \node [block](user){User of services};
         \node [block, right = 4cm of user, above of = user](internet_banking){Internet or mobile banking};
@@ -37,10 +38,9 @@ As a set of possible operation using third-party providers is limited, we can as
         \draw [->] (internet_banking) -- (public_api);
         \draw [->] (tpp) -- (public_api);
     \end{tikzpicture}
-    \caption{Current route of a user request to a bank}
     \medskip
-    \footnotesize\textit{Source:} Own study
-\end{figure}
+    \source{Own study}
+\end{table}
 
 Accordingly, internal bank API is used for official bank's internet banking web application or mobile banking application. 
 Obviously, same internal API can be used for internal usage among internal bank services.
@@ -69,8 +69,9 @@ How to create client interaction, how to analyze client interaction and how to i
 
 In this case, bank can check and validate strategies done by third-parties for client interaction, and in case of positive impact bank can decide what is more applyable — either to continue serving as a service bank, or to create new ways of client interaction by itself.
 
-\begin{figure}
+\begin{table}
     \centering
+    \caption{Open Banking User Request Route}
     \begin{tikzpicture}[auto, node distance=2cm,>=latex']
         \node [block](user){User of services};
         \node [block, right = 5cm of user, above of = user](internet_banking){Internet or mobile banking};
@@ -84,18 +85,18 @@ In this case, bank can check and validate strategies done by third-parties for c
         \draw [->] (internet_banking) -- (api);
         \draw [->] (tpp) -- (api);
     \end{tikzpicture}
-    \caption{Open Banking User Request Route}
     \medskip
-    \footnotesize\textit{Source:} Own study
-\end{figure}
+    \source{Own study}
+\end{table}
 
 This development would lead to a major move towards Bank-as-a-Service.
 Allowing third-party providers to use bank's own services via API on defined and specified requirements would lead to partly delegation of front-office functions to those third-parties, as those can focus on B2C cooperation and find clients more precisely and in more effective way, especially by uniting services of multiple Banks-as-a-Services.
 Mentioned operations would inevitably result in risky, state-of-art FinTech start-ups.
 As a result, Conversational Banking solution can be created by a FinTech start-up, resulting in a next operational scheme.
 
-\begin{figure}
+\begin{table}
     \centering
+    \caption{Open Banking User Request Route with Conversational Banking}
     \begin{tikzpicture}[auto, node distance=2cm,>=latex']
         \node [block](user){User of services};
 
@@ -114,10 +115,9 @@ As a result, Conversational Banking solution can be created by a FinTech start-u
         \draw [->] (tpcb) -- (api);
         \draw [->] (tpp) -- (api);
     \end{tikzpicture}
-    \caption{Open Banking User Request Route with Conversational Banking}
     \medskip
-    \footnotesize\textit{Source:} Own study
-\end{figure}
+    \source{Own study}
+\end{table}
 
 Even though it looks like innovation, actually this is an evolution.
 If bank decide to turn to Conversational Banking in all cases it has to create secure API for multiple operations not covered by, for example, PSD2 yet.
@@ -132,8 +132,9 @@ Of course, this is not an Artificial Intelligence, as it may require big investm
 Unfortunately, in both cases additional costs are required on a front-end level, either some user interface changes in mobile and internet banking application, as a chat window for bot is required.
 On the other hand, an additional application for front-office employees is required, if banks decide to make a hybrid chat-bot approach.
 
-\begin{figure}
+\begin{table}
     \centering
+    \caption{User Request Route with Rule-based middleware}
     \begin{tikzpicture}[auto, node distance=2cm,>=latex']
         \node [block](rbm){Rule-based middleware};
         
@@ -150,10 +151,9 @@ On the other hand, an additional application for front-office employees is requi
         \draw [->] (capi) -- (papi);
         \draw [->] (capi) -- (kdb);
     \end{tikzpicture}
-    \caption{User Request Route with Rule-based middleware}
     \medskip
-    \footnotesize\textit{Source:} Own study
-\end{figure}
+    \source{Own study}
+\end{table}
 
 Additional costs are required on a backend side for a Conversational API, which should handle requests from middleware and return formed responses.
 As well, Conversational API has to use knowledge database, which has predefined answers for most popular questions or some templates.
@@ -166,8 +166,9 @@ Entire processing would be done on a middleware between a user interface, which 
 
 Machine Learning based middleware, either third-party or owned and developed by bank, processes human-writeable text to a form of a backend request and generates human-readable answer based on a response received from a bank backend.
 
-\begin{figure}
+\begin{table}
     \centering
+    \caption{Open Banking User Request Route with ML\&AI Conversational Banking}
     \scalebox{0.9}{
         \begin{tikzpicture}[auto, node distance=2cm,>=latex']
             \node [block](employee){Front-office employee};
@@ -193,17 +194,17 @@ Machine Learning based middleware, either third-party or owned and developed by 
             \draw [->] (capi) -- (kdb);
         \end{tikzpicture}
     }
-    \caption{Open Banking User Request Route with ML\&AI Conversational Banking}
     \medskip
-    \footnotesize\textit{Source:} Own study
-\end{figure}
+    \source{Own study}
+\end{table}
 
 Basically, an ideal system should be just an intermediate block of logic, that receives message from a client, determines business related data and transfers it to customer relationship management system.
 Accordingly, CRM system returns data, which is used by a mentioned block of logic, which returns human-readable format.
 Of course, it has to use various databases of known question-answer pairs and lists of promoted products.
 
-\begin{figure}
+\begin{table}
     \centering
+    \caption{Structure of an integrated chat-bot solution}
     \begin{tikzpicture}[auto, node distance=2cm,>=latex']
         \node [block]
             (user){User};
@@ -218,10 +219,9 @@ Of course, it has to use various databases of known question-answer pairs and li
         \draw [<->] (bot) -- (database);
         \draw [<->] (database) -| (output);
     \end{tikzpicture}
-    \caption{Structure of an integrated chat-bot solution}
     \medskip
-    \footnotesize\textit{Source:} Own study
-\end{figure}    
+    \source{Own study}
+\end{table}    
 
 Unfortunately, this type of system would be significantly complicated and requires more precise analysis and planning.
 Firstly, a user-input message has to pass data cleansing and go to NLU engine, which transforms a message into contextual keywords, which would allow dialog manager to handle.
@@ -231,8 +231,9 @@ As a result, formed response passes to NLG engine, which generates text or synth
 Obviously, for development reasons dialog has to be collected and analyzed with metadata. 
 Accordingly, Artificial Intelligence is a main logical solution for Natural Language Understanding, Natural Language Generation, Dialog Manager and Analytics.
 
-\begin{sidewaysfigure}
+\begin{sidewaystable}
     \centering
+    \caption{Structure of a ML\&AI Chat-bot solution with Natural Language Processing}
     \begin{tikzpicture}[auto, node distance=4cm,>=latex']
         \node [block](messenger){Messenger};
         \node [block, right of = messenger]
@@ -258,10 +259,9 @@ Accordingly, Artificial Intelligence is a main logical solution for Natural Lang
         \draw [->] (dm) -- node{$Next$ $question$} (nlg);
         \draw [->] (nlg) -| node{$Output$} (messenger);
     \end{tikzpicture}
-    \caption{Structure of a ML\&AI Chat-bot solution with Natural Language Processing}
     \medskip
-    \footnotesize\textit{Source:} Own study
-\end{sidewaysfigure}
+    \source{Own study}
+\end{sidewaystable}
 
 \subsection{Recommendations and notifications}
 
@@ -269,8 +269,9 @@ However, AI in a chat-bot is not limited to practical use in terms of Natural La
 AI can be used to create powerful recommendation and notification system, based on existing categories of users and their preferences.
 
 
-\begin{figure}
+\begin{table}
     \centering
+    \caption{Plan of integration of a ML\&AI Recommendation and Notification systems}
     \begin{tikzpicture}[auto, node distance=2cm and 1cm,>=latex']
         \node [block](capi){Conversational API of a Bank};
         \node [block, above of = capi](papi){Public API of a Bank};
@@ -287,10 +288,9 @@ AI can be used to create powerful recommendation and notification system, based 
         \draw [->] (m_and_a) -- (recs);
         \draw [->] (recs) -- (nots);
     \end{tikzpicture}
-    \caption{Plan of integration of a ML\&AI Recommendation and Notification systems}
     \medskip
-    \footnotesize\textit{Source:} Own study
-\end{figure}
+    \source{Own study}
+\end{table}
 
 Every request received may have metainformation, as popular keywords, popular requests, which in pair with known customer information, as age, location, gender, et cetera, allows bank to build recommendation system based on a Machine Learning solutions.
 Nonetheless, this can be done both on a bank side, as on third-party solution, resulting in a Bank-as-a-Platform form of development in this case.
@@ -323,6 +323,7 @@ According to studies, implementation costs time consumption of PSD2 varied drast
 
 \begin{table}
     \centering
+    \caption{Average costs of PSD2 implementation}
     \begin{tabular}{| c | c | c | c |}
         \hline
         &
@@ -345,9 +346,8 @@ According to studies, implementation costs time consumption of PSD2 varied drast
             50'000-200'000 &
             12-24 \\ \hline
     \end{tabular}
-    \caption{Average costs of PSD2 implementation}
     \medskip
-    \footnotesize\textit{Source:} Own study, based on "European PSD2 Survey Results highlights", Deloitte, 2017, p.5.
+    \source{Own study, based on "European PSD2 Survey Results highlights", Deloitte, 2017, p.5.}
 \end{table}
 
 As it was mentioned before, public API is a wider approach, which is based on infrastructure and system provided during implementation of PSD2.
@@ -355,6 +355,7 @@ As a result, in my opinion it is possible to apply same expectations to developm
 
 \begin{table}
     \centering
+    \caption{Expected costs of an Open Banking API implementation}
     \begin{tabular}{| c | c | c | c |}
         \hline
         &
@@ -377,9 +378,8 @@ As a result, in my opinion it is possible to apply same expectations to developm
             50'000-200'000 &
             12-24 \\ \hline
     \end{tabular}
-    \caption{Expected costs of an Open Banking API implementation}
     \medskip
-    \footnotesize\textit{Source:} Own study
+    \source{Own study}
 \end{table}
 
 The next step is to build a cheaper version of middleware, rule-based.
@@ -388,6 +388,7 @@ Therefore, time to market for middleware highly depends on chosen strategy and a
 
 \begin{table}
     \centering
+    \caption{Expected costs of a Rule-based middleware solution}
     \begin{tabular}{| c | c | c | c |}
         \hline
         &
@@ -410,9 +411,8 @@ Therefore, time to market for middleware highly depends on chosen strategy and a
             50'000+ &
             4-6 \\ \hline
     \end{tabular}
-    \caption{Expected costs of a Rule-based middleware solution}
     \medskip
-    \footnotesize\textit{Source:} Own study
+    \source{Own study}
 \end{table}
 
 Next logical step would be creation of Machine Learning based middleware.
@@ -426,6 +426,7 @@ Mentioned strategy allows developing highly efficient chat-bot without need to t
 
 \begin{table}
     \centering
+    \caption{Expected costs of a ML\&AI middleware solution}
     \begin{tabular}{| c | c | c | c |}
         \hline
         &
@@ -448,9 +449,8 @@ Mentioned strategy allows developing highly efficient chat-bot without need to t
             50'000-200'000 &
             9-15 \\ \hline
     \end{tabular}
-    \caption{Expected costs of a ML\&AI middleware solution}
     \medskip
-    \footnotesize\textit{Source:} Own study
+    \source{Own study}
 \end{table}
 
 Machine Learning based chat-bot with Natural Language Processing is an extremelly efficient banking solution.
@@ -465,6 +465,7 @@ This system should allow based on existing, known customer data give personalize
 
 \begin{table}
     \centering
+    \caption{Expected costs of ML\&AI-based Recommendation and Notification solution}
     \begin{tabular}{| c | c | c | c |}
         \hline
         &
@@ -487,9 +488,8 @@ This system should allow based on existing, known customer data give personalize
             50'000-100'000 &
             4-6 \\ \hline
     \end{tabular}
-    \caption{Expected costs of ML\&AI-based Recommendation and Notification solution}
     \medskip
-    \footnotesize\textit{Source:} Own study
+    \source{Own study}
 \end{table}
 
 As a result, bank would be able to create new system, a chat-bot with high levels of user engagement and a farseeing growth basis.
@@ -499,6 +499,7 @@ Nonetheless, entire system and approach is a very risky form of investment and s
 
 \begin{table}
     \centering
+    \caption{Expected costs of an AI NLP Chat-bot solution with Recommendations}
     \begin{tabular}{| c | c | c | c |}
         \hline
         &
@@ -521,7 +522,6 @@ Nonetheless, entire system and approach is a very risky form of investment and s
             200'000-550'000 &
             12-24 \\ \hline
     \end{tabular}
-    \caption{Expected costs of an AI NLP Chat-bot solution with Recommendations}
     \medskip
-    \footnotesize\textit{Source:} Own study
+    \source{Own study}
 \end{table}

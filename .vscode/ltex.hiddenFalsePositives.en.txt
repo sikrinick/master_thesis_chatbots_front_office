@@ -1,6 +1,7 @@
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QNatural Language Generation is a branch of NLP which uses Artificial Intelligence, mostly Machine Learning technics, for building software to generate text and synthesize tet.\\E$"}
-{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qdr.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QStrongly Agree Agree Neutral Disagree Strongly Disagree\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QI can identify when I talk with a chat-bot\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QI am satisfied with chat-bots\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QI trust humans more than chat-bots\\E$"}
+{"rule":"MA_MY","sentence":"^\\QNiniejsza praca ma na celu przeanalizować drogi rozwoju Front Officów banków komercyjnych za pomocą technologii ML & AI.\\E$"}
+{"rule":"NON3PRS_VERB","sentence":"^\\QAdditionally, mentioned chapter I contains analysis of various movements of banking towards openness, Open Banking and PSD2.\\E$"}

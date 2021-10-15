@@ -78,8 +78,9 @@ PSU — Payment Services User — it is an actual client of payment services and
 
 The next diagram shows the relationship between directive participants.
 
-\begin{figure}
+\begin{table}
 \centering
+\caption{Scheme of interconnection between PSD2 agents}
 \begin{tikzpicture}[auto, node distance=2cm,>=latex']
     \node[block](standards){PSD2, EBA, GDPR, standards and recommendations};
     \node[block, below of = standards]
@@ -101,10 +102,9 @@ The next diagram shows the relationship between directive participants.
     \draw[->](tpp) -- node[midway,below right]{$PSD2$ $Consent$} (psu);
     \draw[->](aspsp) -- node[midway, below left]{$SCA$} (psu);
 \end{tikzpicture}
-\caption{Scheme of interconnection between PSD2 agents}
 \medskip
-\footnotesize\textit{Source:} Own study, based on: "Open banking and PSD2", Deloitte, 2019, p. 9.
-\end{figure}
+\source{Own study, based on: "Open banking and PSD2", Deloitte, 2019, p. 9.}
+\end{table}
 
 Firstly, based on PSD2, EBA, GDPR and other standards and recommendations, regulator oversees and builds relationship between three main participants of the directive — ASPSP, TPP and PSU.
 The interaction between TPP and ASPSP is based on a non-contract basis, as both participants are regulated by PSD2.

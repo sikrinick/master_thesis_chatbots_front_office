@@ -21,5 +21,11 @@
 *.idv
 *.lg
 
+# biblatex + bibtex
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
 # Word
 ~$*.docx

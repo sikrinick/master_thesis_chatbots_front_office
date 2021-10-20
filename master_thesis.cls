@@ -15,7 +15,6 @@
 \RequirePackage{etoolbox}
 \RequirePackage{setspace}
 \RequirePackage[within=none]{caption}
-\RequirePackage{xurl}
 
 \ifdefined\HCode % detect tex4ht
   \RequirePackage{inputenc}
@@ -33,8 +32,15 @@
 \RequirePackage{longtable}  
 \RequirePackage{tikz}
 \RequirePackage{pgfplots}
-\RequirePackage[authoryear]{natbib}
+\RequirePackage[
+  style=verbose,
+  sorting=nty,
+  dashed=false,
+  backend=biber,
+]{biblatex}
+\RequirePackage{xurl}
 \RequirePackage[hidelinks]{hyperref}
+
 
 % Debugging
 \iffalse
@@ -50,7 +56,6 @@
 \tikzstyle{sum} = [draw, circle, node distance=1cm]
 
 \setcounter{footnote}{0}  
-
 
 \linespread{1.425}
 
@@ -139,7 +144,7 @@
   \bigskip
 
   \noindent
-  I declare that the following thesis was written under my supervision and I state that it meets all criterias to be submitted for the procedure of academic degree award.
+  I declare that the following thesis was written under my supervision and I state that it meets all criteria to be submitted for the procedure of academic degree award.
 
   \vspace{15mm}
 
@@ -305,9 +310,7 @@
 \renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\enspace}
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}.}
 \setlength{\cftsecindent}{0em}
-\preto\section{%
-  \addtocontents{toc}{\vskip4mm}
-}
+\renewcommand{\cftbeforesecskip}{4mm}
 \setlength{\cftsecnumwidth}{2em}
 \AtBeginDocument{
   \titleformat{\section}[block]{\normalfont\bfseries}{\thesection}{1em}{\normalfont\bfseries}
@@ -332,53 +335,45 @@
   \setlist{nosep, ,after=\vspace{18pt}}
 }
 
-%% Figure caption
+
+%% Caption
 \DeclareCaptionLabelFormat{myformat}{#1~#2}
 \captionsetup{labelformat=myformat, labelsep=period}
-\captionsetup[figure]{name={Pic.}}
+
+%% Figure caption
+\captionsetup[figure]{singlelinecheck=off}
 
 %% Table caption
+\captionsetup[table]{singlelinecheck=off}
 
 %% Figure and table source
 \newcommand{\source}[1]{
-  \par\noindent\footnotesize\textit{Source:} #1
+  \par\noindent\footnotesize
+  \begin{enumerate}[label=\textit{Source:}, wide=0pt, leftmargin=*]
+    \item #1
+  \end{enumerate}
 }
 
 %% Citations
 \AtBeginDocument{
   %% Disabling citation boxes
   \renewcommand{\cite}[2][]{}
+  \nocite{*}
 }
 
 %% Bibliography
 \AtBeginDocument{
   \renewcommand\bibname{BIBLIOGRAPHY}
   \renewcommand\UrlFont{\normalfont}
-
-  \newcommand{\offlinebibitem}[6]{
-    \bibitem[#2(#5)]{#1}
-    #2. % Author
-    #3. % Name
-    #4  % Publisher
-    #5.  % Year
-    \ifx #6
-    \else
-      p. #6  % Page or pages
-    \fi
+  \DeclareFieldFormat{title}{#1}
+  \DeclareFieldFormat{chapter}{#1}
+  \DeclareFieldFormat{url}{
+    \newline\hspace*{-\bibhang}\url{#1}\nopunct
   }
-  \newcommand{\onlinebibitem}[7]{
-    \bibitem[#2(#5)]{#1}
-    #2. % Author
-    #3. % Name
-    #4,  % Publisher
-    #5. % Year or Month Year
-    On line. Date of Access: #6.
-    \\\hspace*{-\bibhang}\url{#7}  % Website
-  }
+  \setlength{\bibitemsep}{1em}
 }
 
-
-% List of shorts
+%% List of shorts
 \newenvironment{listofshorts}
 {
   \vspace{1em}
@@ -392,6 +387,22 @@
 }
 \newcommand{\short}[2]{
   #1 & #2 \\
+}
+
+
+%% Table
+\newcommand{\mttable}[3]{
+  \begin{table}
+    \caption{#1}
+    \bgroup
+    \setlength{\topsep}{0pt}
+    \begin{center}
+      #3
+    \end{center}
+    \egroup
+    \medskip
+    \source{#2}
+  \end{table}
 }
 
 %% List of tables
@@ -409,10 +420,26 @@
   \makeatother
 }
 
+
+%% Figure
+\newcommand{\mtfigure}[4][tbp]{
+  \begin{figure}[#1]
+    \caption{#2}
+    \bgroup
+    \setlength{\topsep}{0pt}
+    \begin{center}
+      #4
+    \end{center}
+    \egroup
+    \medskip
+    \source{#3}
+  \end{figure}
+}
+
 %% List of figures
-\renewcommand{\listfigurename}{List of pictures}
+\renewcommand{\listfigurename}{List of figures}
 \setlength{\cftfigindent}{0em}
-\renewcommand{\cftfigpresnum}{Pic.~}
+\renewcommand{\cftfigpresnum}{Figure~}
 \renewcommand{\cftfigaftersnum}{.}
 \setlength{\cftfignumwidth}{5em}
 \AtBeginDocument{
@@ -458,3 +485,7 @@
     }
   }
 }
+
+\makeatletter
+\newcommand*{\Romannum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother

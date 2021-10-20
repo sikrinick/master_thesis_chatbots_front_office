@@ -14,7 +14,7 @@ In modern conditions, the Central Bank, usually, performs following functions:
     \item Regulation of the monetary system
     \item Implementation of monetary policy
     \item Organization of payment, clearing and settlement relations
-    \item Main state settlement centre
+    \item Main state settlement center
 \end{itemize}
 
 Obviously, this list of functions can be changed, by adding or removing certain functions for different countries, as every country has its own view on banking system, based on cultural, historical and religious conditions, but as we focus on European and/or United States banking systems, we may stick to this list. 
@@ -33,7 +33,7 @@ Development of European banking system and repeal of Banking Act of 1933 in the 
 
 As it was mentioned before, these days customers expect from commercial banks to have various utility and agency services, not just basic functionality of accepting deposits and providing loans. Escalation of competition in the global financial market, technological changes and ever-increasing variety of customer needs have had and are expected to continue to have an impact on banking management. The current stage in the development of the banking services market is characterized by the introduction of new banking services for both individuals and legal entities, an increase in the volume of banking services and an increase in the importance of IT technologies in this sector. 
 What even more important, is the fact, that the banks themselves are interested in providing that sort of services. This is due to the fact, that financial crisis of 2007-2008 showed to banks how it is important to have stable source of income. These secondary functions allow banks to charge customers for their services, allowing to bank to lower operational risk. Importance of secondary functions is growing due to the necessity of more efficient management of working capital, risk management and liquidity. 
-In such case, focus on a client involvment for commercial banks became a favourable solution.
+In such case, focus on a client involvement for commercial banks became a favorable solution.
 
 \subsection{Operating model of commercial bank}
 
@@ -55,7 +55,7 @@ Banking operations division is responsible for actual financial operations. Func
     \item Cash operations department
 \end{itemize}
 
-Internal operations is a supportive division which guarantees proper functionallity of a main financial operations division.
+Internal operations is a supportive division which guarantees proper functionality of a main financial operations division.
 Functionally, it can be divided to:
 \begin{itemize}
     \item Organization department
@@ -66,7 +66,7 @@ Functionally, it can be divided to:
     \item Information technologies department
 \end{itemize}
 
-Nevertheless, banking operations division can be divided not only by functionallity, but also by its customer publicity.
+Nevertheless, banking operations division can be divided not only by functionality, but also by its customer publicity.
 Historically, internally by publicity commercial banks were divided by exterior departments — front office — which is responsible for client communication and is a vanguard of a bank, and interior departments — back office — which is generally responsible for operations execution and is a rearguard of a bank.
 With natural growth commercial banks required additional functionality, a layer which would handle various analytical work and would be a middleware between front office and back office — middle office.
 
@@ -77,42 +77,42 @@ Publicity layers:
     \item Back office
 \end{itemize}
 
-\begin{table}
-\centering
-\caption{Structure of human interaction on banking layers}
-\begin{tikzpicture}[auto, node distance=4cm,>=latex']
-    \node[block](clients){Clients};
-    \node[block, below of = clients]
-        (front_office){Front office};
-    \node[block, right of = front_office]
-        (middle_office){Middle office};
-    \node[block, right of = middle_office]
-        (back_office){Back office};
-    \node[block,above of = middle_office,
-          inner sep=0pt,
-          anchor=west,
-          fit={($(middle_office.south west)+(.5*\pgflinewidth,0)$) 
-                          ($(back_office.north east)-(.5*\pgflinewidth,0)$)},
-          label=center:Employees]
-          (employees){}; 
-    \draw[->](clients) -- (front_office);
-    \draw[->](employees.south -| middle_office) -- (middle_office);
-    \draw[->](employees.south -| back_office) -- (back_office);
-    \draw[->](front_office) -- (middle_office);
-    \draw[->](middle_office) -- (back_office);
-\end{tikzpicture}
-\medskip
-\source{Own study}
-\end{table}
+\mttable
+{Structure of human interaction on banking layers}
+{Own study}
+{
+    \begin{tikzpicture}[auto, node distance=4cm,>=latex']
+        \node[block](clients){Clients};
+        \node[block, below of = clients]
+            (front_office){Front office};
+        \node[block, right of = front_office]
+            (middle_office){Middle office};
+        \node[block, right of = middle_office]
+            (back_office){Back office};
+        \node[block,above of = middle_office,
+              inner sep=0pt,
+              anchor=west,
+              fit={($(middle_office.south west)+(.5*\pgflinewidth,0)$) 
+                              ($(back_office.north east)-(.5*\pgflinewidth,0)$)},
+              label=center:Employees]
+              (employees){}; 
+        \draw[->](clients) -- (front_office);
+        \draw[->](employees.south -| middle_office) -- (middle_office);
+        \draw[->](employees.south -| back_office) -- (back_office);
+        \draw[->](front_office) -- (middle_office);
+        \draw[->](middle_office) -- (back_office);
+    \end{tikzpicture}
+}
 
-Front office — operational division of a bank and its other structural units, responsible for management and development of relationships with counteragents. In front office occurs direct communication with clients, primary verification of loaners' data, collection analysis of received documents, preparation of contracts with clients and other interoperations with counteragents.
-Front office as a term also describes external interfaces, as instruments and rules of interaction of the automated banking system with users and computer networks, in bank branches, in which occurs direct work with clients and the conclusion of contracts and transactions of primar banking business.
+Front office — operational division of a bank and its other structural units, responsible for management and development of relationships with counterparties.
+In front office occurs direct communication with clients, primary verification of loaners' data, collection analysis of received documents, preparation of contracts with clients and other interoperations with counterparties.
+Front office as a term also describes external interfaces, as instruments and rules of interaction of the automated banking system with users and computer networks, in bank branches, in which occurs direct work with clients and the conclusion of contracts and transactions of primary banking business.
 Front office employees are responsible for customer attraction, customer contact development and for a service to existing customers. 
 As for card payment systems, front office includes servicing ATM network and POS terminals, interacting with payment card acceptance points and maintaining a network of self-service information devices.
 Front offices continuously interact with the analytical and processing centers of the system, middle office and back office.
 Typically, front office functions include client communication, receiving and input of further processing client documents, providing the client with information, calling and sending information messages to clients, processing incoming calls.
 As an example of real front office units there are call centers, trading and showrooms, customer service cash decks.
-Among digital front office units there are customer self-service portals, personal accounts and internet banking, remote banking systems, front-office supporting information systems, like CRMs (Customer Relationship Management), ERPs (Enterprise Resource Management), CBSs (Core Banking Systems).
+Among digital front office units there are customer self-service portals, personal accounts and internet banking, remote banking systems, front-office supporting information systems, like CRM (Customer Relationship Management), ERP (Enterprise Resource Management), CBS (Core Banking Systems).
 
 Middle office — bank division, which contains a set of business processes, procedures, normative documents (regulations), reference books, printed forms, organizational and staff documents that ensure the preparation and execution of decision-making processes.
 Middle office units carry out verification and actual processing of client operations. Unlike the front office, even though middle-office workers operations directly related to the client, as a rule, those do not have direct contact with clients.
@@ -122,7 +122,7 @@ As an information systems middle-office use position accounting system, borrower
 Back office — operational and accounting division of the bank, which guarantees the work of the divisions involved in the  asset and liabilities management, carries out the execution, accounting and registration of the transactions with securities, as well as settlements with customers. 
 
 The tasks of the Back Office are credit affairs formation and direct loan issuance processing, loan portfolio quality assessment, account opening, supporting accounting operations, documentation and transactions support concluded by traders of counterparty companies in the front office, etc. 
-Depending on its structure, bback office may consist of one division or may have a couple of units, united by documentation procedures, risk management, accounting and calculations. However, certain banks may unite some functionaity with middle office, as an example — risk management, which usually is understood as middle office activity, as it structurally supports decision-making.
+Depending on its structure, back office may consist of one division or may have a couple of units, united by documentation procedures, risk management, accounting and calculations. However, certain banks may unite some functionality with middle office, as an example — risk management, which usually is understood as middle office activity, as it structurally supports decision-making.
 
-As a conclusion, back office is a division which carries out other divisions involved in asset and liabilities managment. 
-Main back office task is the documentary and electronic registration and maintenance of both market transactions and internal analytcial transactions between organizational units within the framework of the financial resource redistribution system. This is a support unit of the company which performs administrative functions to help customer service personnel carry out their duties.
+As a conclusion, back office is a division which carries out other divisions involved in asset and liabilities management. 
+Main back office task is the documentary and electronic registration and maintenance of both market transactions and internal analytical transactions between organizational units within the framework of the financial resource redistribution system. This is a support unit of the company which performs administrative functions to help customer service personnel carry out their duties.

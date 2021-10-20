@@ -81,16 +81,6 @@ if __name__ == '__main__':
         help="Build PDF (default)",
         dest='format', action='store_const', const="pdf"
     )
-    parser.add_argument(
-        "--html5",
-        help="Build HTML5",
-        dest='format', action='store_const', const="html5"
-    )
-    parser.add_argument(
-        "--odt",
-        help="Build ODT",
-        dest='format', action='store_const', const="odt"
-    )
     parser.set_defaults(format="pdf")
     args = parser.parse_args()
 

@@ -41,7 +41,7 @@ Among those tendencies we may indicate:
 \begin{itemize}
     \item Mobile and Internet payment technologies development
     \item Difference in tariff structure on card acceptance of merchants, resulting in difficulties in creation of common retail space
-    \item High abstraction of existing regulations resulted in general lack of detailization of security of remote payment operations
+    \item High abstraction of existing regulations resulted in general lack of detailing of security of remote payment operations
 \end{itemize}
 
 Taking above-mentioned, and certain others issues into account, the European Commission in July 2013 submitted a proposal to revise the PSD 1 directive. The purpose of this initiative is to close existing regulatory gaps, bring the directive's provisions in line with modern technologies, improve data protection measures within the common market, and create a fair and level playing field for money transfer operators.
@@ -78,33 +78,32 @@ PSU — Payment Services User — it is an actual client of payment services and
 
 The next diagram shows the relationship between directive participants.
 
-\begin{table}
-\centering
-\caption{Scheme of interconnection between PSD2 agents}
-\begin{tikzpicture}[auto, node distance=2cm,>=latex']
-    \node[block](standards){PSD2, EBA, GDPR, standards and recommendations};
-    \node[block, below of = standards]
-         (regulator){Regulator};
-    \node[block, 
-         below left = 1cm and 1cm of regulator,
-         align = center]
-         (aspsp){ASPSP\\(Banks, wallets)};
-   \node[block,
-          below right = 1cm and 1cm of regulator, 
-          align = center]
-          (tpp){TPP\\(AISP, PISP, PIISP)};
-    \node[block, below left = 1cm and 1cm of tpp](psu){PSU};
+\mttable
+{Scheme of interconnection between PSD2 agents}
+{Own study, based on: "Open banking and PSD2", Deloitte, 2019, p. 9.}
+{
+    \begin{tikzpicture}[auto, node distance=2cm,>=latex']
+        \node[block](standards){PSD2, EBA, GDPR, standards and recommendations};
+        \node[block, below of = standards]
+            (regulator){Regulator};
+        \node[block, 
+            below left = 1cm and 1cm of regulator,
+            align = center]
+            (aspsp){ASPSP\\(Banks, wallets)};
+        \node[block,
+            below right = 1cm and 1cm of regulator, 
+            align = center]
+            (tpp){TPP\\(AISP, PISP, PIISP)};
+        \node[block, below left = 1cm and 1cm of tpp](psu){PSU};
 
-    \draw[->](standards) -- (regulator);
-    \draw[->](regulator) -- (tpp);
-    \draw[->](regulator) -- (aspsp);
-    \draw[<->](tpp) -- node{$PSD2$} (aspsp);
-    \draw[->](tpp) -- node[midway,below right]{$PSD2$ $Consent$} (psu);
-    \draw[->](aspsp) -- node[midway, below left]{$SCA$} (psu);
-\end{tikzpicture}
-\medskip
-\source{Own study, based on: "Open banking and PSD2", Deloitte, 2019, p. 9.}
-\end{table}
+        \draw[->](standards) -- (regulator);
+        \draw[->](regulator) -- (tpp);
+        \draw[->](regulator) -- (aspsp);
+        \draw[<->](tpp) -- node{$PSD2$} (aspsp);
+        \draw[->](tpp) -- node[midway,below right]{$PSD2$ $Consent$} (psu);
+        \draw[->](aspsp) -- node[midway, below left]{$SCA$} (psu);
+    \end{tikzpicture}
+}
 
 Firstly, based on PSD2, EBA, GDPR and other standards and recommendations, regulator oversees and builds relationship between three main participants of the directive — ASPSP, TPP and PSU.
 The interaction between TPP and ASPSP is based on a non-contract basis, as both participants are regulated by PSD2.
@@ -171,7 +170,7 @@ The main instrument for competition stimulation in the financial market is aimed
 Obviously, for financial organizations Open Banking brings certain risks: 
 \begin{itemize}
     \item Implementation costs
-    \item Support consts of open API 
+    \item Support costs of open API 
     \item Cybersecurity and funds embezzlement risks
     \item Competition risks, 
     \item Operational and legal risks
@@ -232,7 +231,7 @@ Bank agrees on FinTech services usage and offers it to its customers.
 Open Banking Platform — business-platform, which takes data from third-parties and offers it to its clients. Why would third-parties be interested in this?
 This is a main question, as connection with banks is a question which exists outside their main activity.
 And there are no confirmed cases on interest from part of third-parties to get data from banks and to offer it to their clients.
-Assuming thinking as a commercial platform, there is a definitive reason why clients do use platform services — commerical platform's main product. 
+Assuming thinking as a commercial platform, there is a definitive reason why clients do use platform services — commercial platform's main product. 
 
 Banks have to offer something similar to API platform and to open a window for third-party companies and developers, which will integrate and could interact with a system without banks' actions.
 

@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 from os import listdir, chdir, system
 from subprocess import check_output, Popen, PIPE

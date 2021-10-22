@@ -11,18 +11,25 @@ brew install --cask mactex
 Required to run build.py script
 
 ## Compilation
-
 ### PDF
 ```zsh
 ./build.py
-# or
-python3 build.py --pdf
-# or
-latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error -outdir=output/pdf "master thesis.tex"
+# or 
+latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error -outdir=output/pdf "master_thesis.tex"
 ```
 
 ### DOCX
-I strongly suggest to use [Adobe PDF to Word Converter](https://www.adobe.com/acrobat/online/pdf-to-word.html)
+`./build.py` supports PDF-to-DOCX conversion via GroupDocs Cloud 
+However, you have to register in [GroupDocs Cloud](https://dashboard.groupdocs.cloud/applications/edit/55553).  
+There you can create an application with internal storage and obtain `Client Id` and `Client Secret`.
+Then, specify next environmental variables in your `~/.bashrc` or `~/.zshrc`
+```zsh
+export GROUPDOCS_CLIENT_ID="your client id"
+export GROUPDOCS_CLIENT_SECRET="your client secret"
+```
+
+For manual convertion I strongly suggest to use [GroupDocs PDF to DOCX Converter](https://products.groupdocs.app/conversion/pdf-to-docx).
+Another option is to use [Adobe PDF to Word Converter](https://www.adobe.com/acrobat/online/pdf-to-word.html).
 
 
 ## Editor

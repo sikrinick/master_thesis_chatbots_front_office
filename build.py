@@ -1,99 +1,85 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
-from argparse import ArgumentParser
+import groupdocs_conversion_cloud
 
 from os.path import dirname, realpath, join
-from os import chdir, listdir, remove
+from os import chdir, listdir, remove, getenv
 from subprocess import run
 from typing import Set
+from shutil import move
 
 script_dir = dirname(realpath(__file__))
+chdir(script_dir)
+
 input_file = "master_thesis.tex"
+output_pdf_file_name = "master_thesis.pdf"
+output_docx_file_name= "master_thesis.docx"
+
 output_root = "output"
+output_pdf_dir = join(output_root, "pdf")
+output_docx_dir = join(output_root, "docx")
         
-def mandatory_files(folder: str) -> Set[str]:
-    files=set(
-        run(
-            ["git", "ls-tree", "--name-only", "master"], capture_output=True, text=True,
-            cwd=folder
-        )
-        .stdout
-        .splitlines()
-    )
-    files.add(".git")
-    files.add("build.py")
-    return files
+# build pdf
+run([
+    "latexmk",
+    "-xelatex",
+    "-synctex=1",
+    "-interaction=nonstopmode",
+    "-file-line-error",
+    f"-outdir={output_pdf_dir}",
+    f'"{input_file}"'
+])
+print("\n")
+output_pdf_file = join(output_pdf_dir, output_pdf_file_name)
+print(f"PDF file is in {output_pdf_file}")
 
-def clean(folder: str):
-    files = listdir(folder)
-    for file in files:
-        if file not in mandatory_files(folder):
-            try: 
-                remove(join(folder, file))
-            except Exception as e:
-                print(e)
+# pdf => docx
+print("\n")
+groupdocs_client_id = getenv("GROUPDOCS_CLIENT_ID")
+groupdocs_client_secret = getenv("GROUPDOCS_CLIENT_SECRET")
+print(f"GroupDocs CLIENT_ID: {groupdocs_client_id}")
+print(f"GroupDocs CLIENT_SECRET: {groupdocs_client_secret}")
+print("\n")
 
-def transform(output_format: str):
-    
-    chdir(script_dir)
+if groupdocs_client_id is None or groupdocs_client_secret is None:
+    print("GroupDocs settings are not specified. PDF to DOCX conversion cannot be done automatically")
+    print("Use https://products.groupdocs.app/conversion/pdf-to-docx")
+    quit()
 
-    if output_format == "pdf":
-        output_dir = join(output_root, "pdf")
-        run([
-            "latexmk",
-            "-xelatex",
-            "-synctex=1",
-            "-interaction=nonstopmode",
-            "-file-line-error",
-            f"-outdir={output_dir}",
-            f'"{input_file}"'
-        ])
-    elif output_format == "html5":
-        output_dir = join(output_root, "html5")
-        run([
-            "make4ht",
-            "-x",
-            "-f", "html5+dvisvgm_hashes",
-            #"-d", output_dir,
-            input_file
-        ])
-        clean(".")
-        clean("images")
-        clean("survey")
-    elif output_format == "odt":
-        output_dir = join(output_root, "odt")
-        run([
-            "make4ht",
-            "-x",
-            "-f", "odt",
-            #"-d", output_dir,
-            input_file
-        ])
-        clean(".")
-        clean("images")
-        clean("survey")
-    else:
-        quit()
+convert_api = groupdocs_conversion_cloud.ConvertApi.from_keys(groupdocs_client_id, groupdocs_client_secret)
+file_api = groupdocs_conversion_cloud.FileApi.from_keys(groupdocs_client_id, groupdocs_client_secret)
 
 
-if __name__ == '__main__':
-    parser = ArgumentParser(description='Build master_thesis.tex')
-    parser.add_argument(
-        "--pdf",
-        help="Build PDF (default)",
-        dest='format', action='store_const', const="pdf"
-    )
-    parser.add_argument(
-        "--odt",
-        help="Build ODT",
-        dest='format', action='store_const', const="odt"
-    )
-    parser.add_argument(
-        "--html5",
-        help="Build HTML5",
-        dest='format', action='store_const', const="html5"
-    )
-    parser.set_defaults(format="pdf")
-    args = parser.parse_args()
+## upload pdf to GroupDocs storage
+upload_file = join(output_pdf_dir, output_pdf_file_name)
+remote_name = output_pdf_file_name
 
-    transform(output_format=args.format)
+print(f"Uploading {upload_file} as {remote_name}")
+request_upload = groupdocs_conversion_cloud.UploadFileRequest(remote_name, upload_file)
+response_upload = file_api.upload_file(request_upload)
+print("Finished upload")
+print("\n")
+
+## convert in cloud pdf => docx
+conversion_settings = groupdocs_conversion_cloud.ConvertSettings()
+conversion_settings.file_path = remote_name
+conversion_settings.format = "docx"
+conversion_settings.output_path = output_docx_file_name
+
+print(f"Converting {conversion_settings.file_path} to {output_docx_file_name}")
+request = groupdocs_conversion_cloud.ConvertDocumentRequest(conversion_settings)
+response = convert_api.convert_document(request)
+print("Finished conversion")
+print("\n")
+
+## download from cloud
+print(f"Downloading {output_docx_file_name}")
+request_download = groupdocs_conversion_cloud.DownloadFileRequest(output_docx_file_name)
+response_download = file_api.download_file(request_download)
+print("Finished download")
+print("\n")
+
+## move to output
+output_docx_file = join(output_docx_dir, output_docx_file_name)
+move(response_download, output_docx_file)
+print(f"DOCX file is in {output_docx_file}")

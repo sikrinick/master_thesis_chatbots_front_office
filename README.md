@@ -38,10 +38,4 @@ brew install aspell
 
 # run spellcheck script
 ./spellcheck.py
-
-# or you can check every file separately
-aspell -t -c master_thesis.tex 
-aspell -t -c content/introduction.tex 
-cd content/chapter_1 && aspell -t -c 1_banking_system_overview.tex
-... 
 ```

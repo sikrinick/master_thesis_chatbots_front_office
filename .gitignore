@@ -1,4 +1,4 @@
-# Latex PDF
+# Latexmk
 *.aux
 *.fdb_latexmk
 *.fls
@@ -12,20 +12,21 @@
 *.loa
 *.los
 *.tmp
-
-# make4ht
 *.4ct
 *.4tc
-*.dvi
-*.xref
-*.idv
-*.lg
 
 # biblatex + bibtex
 *.bbl
 *.bcf
 *.blg
 *.run.xml
+
+# make4ht
+*.dvi
+*.xref
+*.idv
+*.lg
+
 
 # Word
 ~$*.docx

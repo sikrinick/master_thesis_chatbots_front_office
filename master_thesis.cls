@@ -21,6 +21,7 @@
   \PassOptionsToPackage{utf8}{inputenc}
   \RequirePackage{fontenc}
   \PassOptionsToPackage{T1}{fontenc}
+  \def\pgfsysdriver{pgfsys-dvisvgm4ht.def}
 \else
   \RequirePackage{fontspec}
   \setmainfont{Times New Roman}
@@ -325,6 +326,7 @@
 \AtBeginDocument{
   \titleformat{\subsection}[block]{\normalfont\bfseries}{\thesubsection}{1em}{\normalfont\bfseries}
   \titlespacing*{name=\subsection}{0cm}{28pt}{18pt}
+  \titlespacing*{name=\subsection, numberless}{\parindent}{12pt}{8pt}
 }
 
 %% Paragraph
@@ -459,7 +461,7 @@
     \addcontentsline{loa}{annexes}{
       \protect\numberline{Annex \theannexes.} #1
     }
-    \par\noindent\section*{Annex \theannexes. #1}
+    \par\noindent\section*{#1}
 }
 \setlength{\cftannexesindent}{-0.3em}
 \setlength{\cftannexesnumwidth}{4.5em}

@@ -393,17 +393,17 @@
 
 
 %% Table
-\newcommand{\mttable}[3]{
-  \begin{table}
-    \caption{#1}
+\newcommand{\mttable}[4][htp]{
+  \begin{table}[#1]
+    \caption{#2}
     \bgroup
     \setlength{\topsep}{0pt}
     \begin{center}
-      #3
+      #4
     \end{center}
     \egroup
     \medskip
-    \source{#2}
+    \source{#3}
   \end{table}
 }
 

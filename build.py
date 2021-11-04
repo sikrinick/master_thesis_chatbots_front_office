@@ -3,9 +3,8 @@
 import groupdocs_conversion_cloud
 
 from os.path import dirname, realpath, join
-from os import chdir, listdir, remove, getenv
+from os import chdir, getenv
 from subprocess import run
-from typing import Set
 from shutil import move
 
 script_dir = dirname(realpath(__file__))
@@ -48,7 +47,6 @@ if groupdocs_client_id is None or groupdocs_client_secret is None:
 
 convert_api = groupdocs_conversion_cloud.ConvertApi.from_keys(groupdocs_client_id, groupdocs_client_secret)
 file_api = groupdocs_conversion_cloud.FileApi.from_keys(groupdocs_client_id, groupdocs_client_secret)
-
 
 ## upload pdf to GroupDocs storage
 upload_file = join(output_pdf_dir, output_pdf_file_name)

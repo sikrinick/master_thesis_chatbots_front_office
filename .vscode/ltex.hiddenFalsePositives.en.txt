@@ -6,3 +6,4 @@
 {"rule":"MA_MY","sentence":"^\\QNiniejsza praca ma na celu zbadanie rozwoju działu Front Office w banku komercyjnym dokonywanego za pomocą technologii ML & AI.\\E$"}
 {"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QNatural Language Generation is a branch of NLP which uses Artificial Intelligence, mostly Machine Learning technical, for building software to generate text and synthesize text.\\E$"}
 {"rule":"ON_COMPOUNDS","sentence":"^\\QOn line.\\E$"}
+{"rule":"MA_MY","sentence":"^\\QNiniejsza praca ma na celu zbadanie rozwoju działu Front Office w banku komercyjnym dokonywanego za pomocą nowych technologii.\\E$"}

@@ -30,3 +30,7 @@
 
 # Word
 ~$*.docx
+
+
+# Aspell
+*.bak

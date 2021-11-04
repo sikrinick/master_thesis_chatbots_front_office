@@ -1,6 +1,6 @@
 % !TeX root = ../../master_thesis.tex
 
-\section{Chatbots. Overview and theoretical aspect}
+\section{Chatbots: overview and theoretical aspect}
 
 Chatbot — is a complex multivariate algorithm, which is able to perceive information in the simplest and most understandable for the people form — dialogue.
 In the process of communication with a person, chatbot analyzes lexical data and forms logically correct answers.
@@ -183,8 +183,17 @@ The last and, probably, the most important internal classification is by decisio
 Rule-based chatbots are comparably simple, as those are being built by a set of branch algorithms with limited number of options.
 Machine Learning based chatbots, in its turn, can adapt to ever-changing environment and create new answers, notifications and other forms of interaction based on a single client or a group of clients.
 
+\bigskip
+\noindent The following details will follow: 
+\begin{itemize}
+    \item Structure 
+    \item Front-end 
+    \item Middleware 
+    \item Back-end 
+\end{itemize}
 
-\subsection{Structure}
+
+\subsection*{Structure}
 
 Structurally, chatbot can be divided into 3 parts — front-end, middleware and back-end.
 Front-end defines user interface, a form of a user interaction both textual and by voice.
@@ -195,7 +204,7 @@ Those differ only by the front-end for the user.
 In both solutions we have to use Natural Language Programming technologies to either transform text or speech into commands valid for back-end API.
 Such an architecture allows building conversational solutions in a form of simple, on interface level, blocks.
 
-\subsection{Front-end}
+\subsection*{Front-end}
 
 Front-end is an interface for a user of a conversational bot.
 Interaction can be done by voice or text both for input and output.
@@ -233,7 +242,7 @@ Obviously, familiarity is also connected to prior existence of customer support 
 Nonetheless, as it was mentioned before, this is only a form of interaction, not a logic by itself and not the most labor-intensive part of the chatbot.
 
 
-\subsection{Middleware}
+\subsection*{Middleware}
 
 Input received from front-end is passed to middleware.
 Middleware can be either on a bank side, or on some third-party service.
@@ -256,7 +265,7 @@ Accordingly, Conversational Banking has to be created with two instruments, Natu
 Moreover, same middleware can be used for various forms, as a text or speech understanding framework for call-center bots, website chatbots or robo-advisers and for text or speech generation for SMS, text answers or cold calling.
  
 
-\subsection{Back-end}
+\subsection*{Back-end}
 
 Back-end part of any conversational interaction is the most important from a banking side, as it is directly connected to banking processes.
 This part is actual part of execution of transactions, request or for other orders of operations, including current balance check.

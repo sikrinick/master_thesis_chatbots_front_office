@@ -19,7 +19,7 @@ latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error -outdir=ou
 ```
 
 ### DOCX
-`./build.py` supports PDF-to-DOCX conversion via GroupDocs Cloud 
+`./build.py` supports PDF-to-DOCX conversion via GroupDocs Cloud.  
 However, you have to register in [GroupDocs Cloud](https://dashboard.groupdocs.cloud/applications/edit/55553).  
 There you can create an application with internal storage and obtain `Client Id` and `Client Secret`.
 Then, specify next environmental variables in your `~/.bashrc` or `~/.zshrc`
